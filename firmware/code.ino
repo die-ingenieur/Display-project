@@ -93,16 +93,16 @@ void Sstartdelay(){
     }
 }
 void moveSnake(){
-    for (int i=Ssnake_length-1; i>0;i--){
-        StailX[i] = StailX[i-1];
+    for (int i=Ssnake_length-1; i>0;i--){ //
+        StailX[i] = StailX[i-1]; //moves next snake segment to one in front
         Staily[i]=Staily[i-1];
 }
-    StailX[0]=SheadX;
-    Staily[0]=SheadY;
+    StailX[0]=SheadX;   //moves the item behind the head to the postion the head occupied
+    Staily[0]=SheadY;      
     SheadX+=Horizontal;
     SheadY+=vertical;
 }
-void Sdrawgame(){
+void Sdrawgame(){    // draws game
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
@@ -117,13 +117,13 @@ void Sdrawgame(){
 
     //body
     for (int i=0;i<Ssnake_length; i++){
-        display.fillRect(StailX[i],Staily[i], snake_size,snake_size, SSD1306_WHITE);
+        display.fillRect(StailX[i],Staily[i], snake_size,snake_size, SSD1306_WHITE);   //all segments 
     }
     display.display();
 }
 void check_food_collision(){
-    if ((abs(SheadX-Sfoodx) < snake_size)&&(abs(SheadY-Sfoody)<snake_size)){
-        Ssnake_score+=1;
+    if ((abs(SheadX-Sfoodx) < snake_size)&&(abs(SheadY-Sfoody)<snake_size)){  //food collsion if the x corodines of food and snake are beelfow 4
+        Ssnake_score+=1;   
         if (Ssnake_length<max_size){
             Ssnake_length+=1;
         }
@@ -145,13 +145,13 @@ void createfruit(){
     Sfoody=(random(1,63));
 }
 void snake_button_movement(){
-    if ( button_pin_state==LOW){Horizontal = Sdirection[0][0];vertical = Sdirection[0][1];}
+    if ( button_pin_state==LOW){Horizontal = Sdirection[0][0];vertical = Sdirection[0][1];}   //direction of motion
     else if( button_pin2_state==LOW){Horizontal = Sdirection[1][0]; vertical = Sdirection[1][1];}
     else if( button_pin3_state==LOW){Horizontal = Sdirection[2][0]; vertical = Sdirection[2][1];}
     else if( button_pin4_state==LOW){Horizontal = Sdirection[3][0]; vertical = Sdirection[3][1];}
 
 }
-void Snake_gameOver(){
+void Snake_gameOver(){  //game over
         display.clearDisplay();
         display.setTextColor(SSD1306_WHITE);
         display.setTextSize(2);
@@ -166,7 +166,7 @@ void Snake_gameOver(){
         display.display();
         delay(25);
 }
-void snakegame(){
+void snakegame(){   //main snake loop
     button_pin_state=digitalRead(Button_pin);
 
     if (Intro_for_snake) {
@@ -361,7 +361,7 @@ void loop() {
     button_pin2_state=digitalRead(Button_pin2);
     button_pin3_state=digitalRead(Button_pin3);
     button_pin4_state=digitalRead(Button_pin4);
-    if (!game_selected) game_select();
+    if (!game_selected) game_select();   //selects which game to play based on user descion
     if (game_option==1){
         snakegame();
     }else if (game_option==2){

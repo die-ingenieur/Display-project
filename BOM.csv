@@ -1,4 +1,5 @@
 Item,Qty,Supplier,Cost/item,Total Cost,link
 ESP32 RP2040,1,amazon,$10.00,$10.00,https://www.amazon.com/dp/B09NNVNW7M?plpRedirect=mhFallback&ref=clp_hp_h_pc
 button,1,me,$0.01,$0.01,https://me.com
+pcb,1,PCBWAY,$9.04,$9.04,https://www.pcbway.com/QuickOrderOnline.aspx
 Estimated total shipping,1,,,$0.00,

@@ -23,8 +23,8 @@ int SheadX = 64;
 int SheadY= 32;
 int Horizontal = 4;
 int vertical=0;
-int Sdirection[4][2] {
-    {0,-4},
+int Sdirection[4][2] {   //i made it as a matrix cause why not, it keeps it oragsnied , easy to reference and change. 
+    {0,-4},// just each gives you how much the snake moves to the left and to the right.
     {4,0},
     {0,4},
     {-4,0}

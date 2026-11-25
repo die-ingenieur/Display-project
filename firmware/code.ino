@@ -297,7 +297,7 @@ void updates(bool jump_now){  //getting the bool jump_now from justPressed, so w
     const int gapTop = gap_y - gapsize /2;    
     const int gapBottom = gap_y + gapsize /2;
     const bool hitPipeX = bird_x + bird_size > pipe_x && bird_x < pipe_x + pipe_width;
-    const bool outsideGap = bird_y < gapTop || bird_y + bird_size > gapBottom;
+    const bool outsideGap = bird_y < gapTop || bird_y + bird_size > gapBottom;      //ai declaration:for this part for collsion detection ,  I did use a bit of ai.
     if (bird_y< 0 || bird_y +bird_size > Screen_height|| ( hitPipeX && outsideGap )) {
       gameState = GAME_OVER;
     }
